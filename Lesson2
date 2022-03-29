@@ -1,0 +1,249 @@
+package lesson2;
+
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        // Циклы - возможность повторить блок кода несколько раз
+        // while - цикл пока (неопределенный цикл)
+        // for - определенный цикл
+
+        // while
+        int i = 5;
+        while (i > 0) {
+            System.out.println(i);
+            i = i - 1;
+        }
+        System.out.println("После цикла i = " + i);
+
+        int j = 10;
+        while (j > 0) {
+            System.out.println(j);
+            j = j - 1;
+        }
+
+        // сокращенные операции
+        System.out.println(j);
+        j = j + 5;
+        System.out.println(j);
+        j += 5;
+        System.out.println(j);
+
+        j -= 5; // j = j - 5
+        System.out.println(j);
+        j *= 2; // j = j * 2
+        System.out.println(j);
+        j /= 4; // j = j / 4
+        System.out.println(j);
+        j %= 2; // j = j % 2
+        System.out.println(j);
+
+        j++;
+        System.out.println(j);
+        j--;
+        System.out.println(j);
+
+        // for
+        int sum = 0;
+        for (int k = -1; k <= 7; k+=1) {
+            sum += k;
+//            System.out.println(j + " " + sum);
+        }
+        System.out.println(sum);
+//
+        for (int k = 30; k >= 2; k -= 2) {
+            System.out.println(k);
+        }
+
+        for (int k = 0; k < 10; k++) {
+            System.out.println("Привет мир");
+        }
+
+        // task1
+        /*
+        Спросить у пользователя целое положительное число n
+        Повторить фразу "Цикл работает..." n раз
+         */
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+
+        for (int k = 0; k < n; k++) {
+            System.out.println("Цикл работает " + (k + 1) + " раз");
+        }
+
+
+        // task2
+        /*
+        Спросить у пользователя целое положительное число n
+        Вывести на экран сколько денег будет на вкладе с первоначальным взносом 100 000р с 11% годовых через n лет
+        взнос * (1 + процент/100.0)^лет, где символ '^' - степень
+         */
+        double balance = 100000;
+        double mnozh = 1 + 11 / 100.0;
+        for (int k = 0; k < n; k++) {
+            balance *= mnozh;
+            System.out.println("После " + (k + 1) + " лет: " + balance + " рублей");
+        }
+        System.out.println(balance);
+        System.out.println(100000*Math.pow(1.11, n));
+
+        // do..while
+        int p = 1;
+        while (p>1) {
+            System.out.println(p);
+            p--;
+        }
+//
+        do {
+            System.out.println(p);
+            p--;
+        } while (p > 1);
+
+        // continue
+        for (int k = 0; k < 10; k++) {
+            if (k == 5) {
+                continue;
+            }
+            System.out.println(k);
+        }
+
+        for (int k = 0; k < 10; k++) {
+            if (k != 5) {
+                System.out.println(k);
+            }
+        }
+
+        // break
+        for (int k = 0; k < 10; k++) {
+            if (k == 5) {
+                break;
+            }
+            System.out.println(k);
+        }
+        System.out.println("После цикла");
+
+
+        int y;
+        while (true) {
+            System.out.println("Введите положительное число");
+            y = scanner.nextInt();
+            if (y > 0) {
+                break;
+            } else {
+                System.out.println("Число неверное, повторите");
+            }
+        }
+        System.out.println("количество лет = " + y);
+
+        // Массивы - нумерованный набор элементов одного и того же типа фиксированной длины
+        int[] ints1;
+
+        // 1 способ - через длину
+        ints1 = new int[4]; // ints1 - массив из четырех int
+        System.out.println("Информация про ints1");
+        System.out.println("Длина: " + ints1.length);
+        System.out.println("Элементы: ");
+        System.out.println("Элемент на индексе 0 = " + ints1[0]);
+        System.out.println("Элемент на индексе 1 = " + ints1[1]);
+        System.out.println("Элемент на индексе 2 = " + ints1[2]);
+        System.out.println("Элемент на индексе 3 = " + ints1[3]);
+
+        // 2 способ - через значения
+        int[] ints2 = new int[]{3, -1, 2000000000, 100, -50};
+        // индекс - порядковый номер начиная с 0
+        System.out.println("Информация про ints2");
+        System.out.println("Длина: " + ints2.length);
+        System.out.println("Элементы: ");
+        System.out.println("Элемент на индексе 0 = " + ints2[0]);
+        System.out.println("Элемент на индексе 1 = " + ints2[1]);
+        System.out.println("Элемент на индексе 2 = " + ints2[2]);
+        System.out.println("Элемент на индексе 3 = " + ints2[3]);
+        System.out.println("Элемент на индексе 4 = " + ints2[4]);
+
+        // изменение возможно
+        ints1[3] = -1000;
+        System.out.println("Элемент ints1 на индексе 3 = " + ints1[3]);
+
+        System.out.println(ints1);
+        System.out.println(ints2);
+
+        // Arrays.toString() - превращает всё содержимое массива в строку
+        System.out.println(Arrays.toString(ints1));
+        System.out.println(Arrays.toString(ints2));
+
+        // Работа с массивами
+        for (int index = 0; index < ints2.length; index++) {
+            System.out.println("Элемента на индексе " + index + " = " + ints2[index]);
+        }
+
+        System.out.println("Массив до: " + Arrays.toString(ints2));
+        for (int index = 0; index < ints2.length; index++) {
+            if (ints2[index] % 2 == 0) { // если элемент четный
+                ints2[index] /= 2; // уменьшить его в два раза
+            }
+        }
+        System.out.println("Массив после: " + Arrays.toString(ints2));
+
+        int ints2Sum = 0;
+        for (int index = 0; index < ints2.length; index++) {
+            ints2Sum += ints2[index];
+        }
+        System.out.println(ints2Sum);
+
+        // task3
+        /*
+        Создать массив дробных чисел с любым количеством любых значений
+        С помощью цикла пройтись по всем элементам и положительные вывести на экран
+        Отрицательные умножить на 5.5
+        Вывести массив после всех действия (использовать Arrays.toString())
+        Если ругается на Arrays, прописать следующую строку в начале файла до класса
+        import java.util.Arrays;
+         */
+        double[] numbers = new double[]{0.01, 5.25, -1, -5.1, 100.123};
+
+        for (int index = 0; index < numbers.length; index++) {
+            if (numbers[index] > 0) {
+                System.out.println(numbers[index]);
+            }
+            if (numbers[index] < 0) {
+                numbers[index] *= 5.5;
+            }
+        }
+
+        System.out.println(Arrays.toString(numbers));
+
+        // task4 (*)
+        /*
+        Спросить у пользователя длину массива, а потом все элементы этого массива
+        Найти разницу между максимальным и минимальным числом
+         */
+    }
+}
+public static void main(String[] args) {
+// Создаем сканер
+        Scanner scanner = new Scanner(System.in);
+        // Создаем запрос длины массива
+        System.out.println("Введите длину массива");
+        // Создаем переменную длины массива
+        int lenght = scanner.nextInt();
+        // Создаем массив
+        int[] list = new int[lenght];
+        // Создаем цикл заполняющий массив числами
+        for (int index = 0; index < list.length ; index++) {
+            System.out.println("Ввидите число массива");
+            list[index]=scanner.nextInt();
+
+        }
+        // Выводим получившийся массив в консоль
+        System.out.println(Arrays.toString(list));
+        // Получаем большее число из массива
+        int max = Arrays.stream(list).max().getAsInt();
+        // Получаем меньшее число из массива
+        int min = Arrays.stream(list).min().getAsInt();
+        // Считаем разницу между большим и меньшим числом
+        System.out.println(max-min);
+
+    }
+}
