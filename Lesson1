@@ -1,0 +1,421 @@
+package lesson1;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        // арифметические операции над целыми числами
+        System.out.println(5+2);
+        System.out.println(5-2);
+        System.out.println(5*2);
+        System.out.println(5/2);
+        System.out.println(5%2);
+
+        // арифметические операции над дробными числами
+        System.out.println(5.1 / 2);
+        System.out.println(5.0 / 0);
+        System.out.println(0.1+0.2);
+
+        // скобочки работают как в математике, * и / важнее чем + и -
+        System.out.println((5+2) * 4);
+
+        // task1
+        /*
+        Предположим, что человек положил в банк 77 777 рублей на год под 18%
+        Вывести на экран число рублей после года
+         */
+        // Если хотя бы один из операндов является дробным числом - выполняется операция с дробными числами
+        System.out.println(77777 * (1 + 18/100.0));
+
+        System.out.println(77777 * (1 + 18/100.0) * (1 + 18/100.0));
+
+        // переменные - названия для значений определенного типа
+        // название переменной начинается с буквы, после этого доступны все буквы и все цифры
+        // создание переменной
+        int number;
+
+        // инициализация переменной
+        number = 5;
+        System.out.println(number);
+        System.out.println(number / 2);
+        number = 11;
+        System.out.println(number);
+        System.out.println(number / 2);
+
+        System.out.println(3 * 2.4);
+        number = 14;
+        System.out.println(number);
+
+        int number2 = 1000;
+        System.out.println(number2);
+
+        String str = "123db";
+        System.out.println(str);
+
+        // примитивный типы данных
+        // целые числа
+//         byte - 1 байт, [-128..127]
+        byte x = 127;
+        byte one = 1;
+        System.out.println((byte)(x + one));
+        System.out.println((byte) -129);
+
+        // short - 2 байта, [-2^15.. 2^15-1]
+        short s = 32767;
+
+        // int - 4 байта, [-2^31..2^31-1]
+        int i = 2147483647;
+
+        // long - 8 байт, [-2^63..2^63-1]
+        long l = 2147483648L;
+
+        // дробные числа
+        // float - 4 байта
+        float f = 3.5f;
+
+        // double - 8 байт
+        double d = 4.12333;
+
+        // символ
+        // char - 4 байта
+        char y = '语';
+        System.out.println(y);
+        System.out.println(y + 1 - 1);
+
+        // логический тип данных
+        // boolean
+        boolean boolTrue = true;
+        boolean boolFalse = false;
+        System.out.println(boolFalse);
+
+        // task2
+        /*
+        Создать переменную целого типа sum под сумму на счётё, положить туда любое значение
+        Создать переменную дробного типа percent под процент, положить туда любое значение
+        Используя имена переменных посчитать сумму на счётё через год
+         */
+        int sum = 100001;
+        double percent = 18.5;
+        System.out.println(sum * (1 + percent/100));
+
+        // Ввод значений с клавиатуры
+        System.out.println("Введите целое число");
+        Scanner scanner = new Scanner(System.in);
+        int userInt = scanner.nextInt();
+        System.out.println(userInt);
+        double userDouble = scanner.nextDouble();
+        System.out.println(userDouble);
+
+        System.out.println("Сколько ты положил на вклад");
+        sum = scanner.nextInt();
+        System.out.println("Под какой процент?");
+        percent = scanner.nextDouble();
+        System.out.println("Через год у тебя будет столько:");
+        System.out.println(sum * (1 + percent/100));
+
+        // Условия
+        System.out.println(5 == 2);
+        System.out.println(5 == 3 + 2);
+        System.out.println(5 != 2);
+        System.out.println(5 != 2 + 3);
+
+        // Условный оператор
+        int e = scanner.nextInt();
+        if (e > 0) {
+            System.out.println("У вас положительное число");
+            System.out.println(1);
+        } else {
+            System.out.println("У вас отрицательное число или ноль");
+            System.out.println(2);
+        }
+
+        if (e % 2 == 0) {
+            System.out.println("У вас четное число");
+        } else {
+            System.out.println("У вас нечетное число");
+        }
+
+        if (e > 0) {
+            System.out.println("У вас положительное число");
+        } else {
+            if (e < 0) {
+                System.out.println("У вас отрицательное число");
+            } else {
+                System.out.println("Ноль");
+            }
+        }
+
+        if (e > 0) {
+            System.out.println("У вас положительное число");
+        } else if (e < 0) {
+            System.out.println("У вас отрицательное число");
+        } else {
+            System.out.println("Ноль");
+        }
+
+        if (e > 0) {
+            System.out.println("У вас положительное число");
+        }
+        if (e < 0) {
+            System.out.println("У вас отрицательное число");
+        }
+        if (e == 0) {
+            System.out.println("Ноль");
+        }
+
+        // Отрицание (not) - взятие обратного значения
+        System.out.println(!true);
+        System.out.println(!false);
+
+        // И (and) - даст true только если оба значения true
+        System.out.println(false && false);
+        System.out.println(true && false);
+        System.out.println(false && true);
+        System.out.println(true && true);
+
+        // Или (or) - даст false только если оба значения false
+        System.out.println(false || false);
+        System.out.println(true || false);
+        System.out.println(false || true);
+        System.out.println(true || true);
+
+        if ((e % 3 == 0) && (e % 4 == 0)) {
+            System.out.println("Делится на 3 и на 4");
+        }
+
+        if ((e % 3 == 0) || (e % 4 == 0)) {
+            System.out.println("Делится на 3 или на 4");
+        }
+
+        switch (e) {
+            case 1:
+                System.out.println("Понедельник");
+                break;
+            case 2:
+                System.out.println("Вторник");
+                break;
+            case 3:
+                System.out.println("Среда");
+                break;
+            case 4:
+                System.out.println("Четверг");
+                break;
+            case 5:
+                System.out.println("Пятница");
+                break;
+            case 6:
+                System.out.println("Суббота");
+                break;
+            case 7:
+                System.out.println("Воскресенье");
+                break;
+            default:
+                System.out.println("неправильный номер дня недели");
+        }
+
+        if (e == 1) {
+            System.out.println("Понедельник");
+        } else if (e == 2) {
+            System.out.println("Вторник");
+        } else if (e == 3) {
+            System.out.println("Среда");
+        } else if (e == 4) {
+            System.out.println("Четверг");
+        } else if (e == 5) {
+            System.out.println("Пятница");
+        } else if (e == 6) {
+            System.out.println("Суббота");
+        } else if (e == 7) {
+            System.out.println("Воскресенье");
+        } else {
+            System.out.println("неправильный номер дня недели");
+        }
+
+        // task3
+        /*
+        Спросить у пользователя три целых числа a, b и c
+        В случае, если сумма a и b = с, вывести "a+b=c"
+         */
+        scanner = new Scanner(System.in);
+        System.out.println("Введите число a");
+        int a = scanner.nextInt();
+        System.out.println("Введите число b");
+        int b = scanner.nextInt();
+        System.out.println("Введите число c");
+        int c = scanner.nextInt();
+        if (a + b == c) {
+            System.out.println("a+b=c");
+        }
+
+        // task4
+        /*
+        Спросить у пользователя три целых числа a,b и c
+        Вывести "Да", если существует треугольник с такими сторонами
+        Вывести "Нет", если не существует
+        (треугольник существует если сумма любых двух сторон больше третьей стороны)
+         */
+        if (((a + b > c) && (a + c > b)) && (b + c > a)) {
+            System.out.println("Да");
+        } else {
+            System.out.println("Нет");
+        }
+    }
+}
+// Home work *****
+//Task 00
+package lesson1;
+
+/*
+1. Установить JDK
+На сайте https://www.oracle.com/java/technologies/downloads/#jdk18-windows скачать и установить "x64 Installer".
+2. Скачать и установить IntelliJ IDEA
+Перейти по ссылке https://www.jetbrains.com/ru-ru/idea/download/ и скачать IDEA Community Edition
+Установить программу, во время установки можно оставить все параметры по умолчанию
+3. Открыть IDEA и создать новый проект
+Создать новый проект Java в любом удобном месте на системе
+Документация от разработчиков IDEA https://www.jetbrains.com/help/idea/new-project-wizard.html
+Уделить внимание выбору SDK: с большой вероятностью IDEA сама найдет установленный JDK, но если этого не произойдет, есть 2 варианта:
+    или с помощью меню выбора папки указать то место, где находится папкаjava-se-8u41-ri
+    или с помощью меню Download JDK скачать 8 версию JDK от любого поставщика
+4. Запустить программу
+После создания проекта создать новый Java Class в папке src
+Внутри того кода, который автоматически появится в файле надо добавить точку входа в программу:
+поставить новую строку между фигурных скобочек, написать "psvm" и нажать Enter
+Появится точка входа, между фигурных скобочек которой возможно писать код программы
+Если там написать sout и нажать Enter, он поставит код для вывода в консоль
+Между круглых скобок написать значение любого типа и нажать Ctrl+Shift+F10 - программа запустится
+После этого программу можно запускать или с помощью зеленой стрелочки, или с помощью Shift+F10
+ */
+public class HW0 {
+}
+//РЕШЕНИЕ
+public class HW0 {
+    public static void main(String[] args) {
+        System.out.println("Hello world");
+    }
+}
+//TAsk 01
+package lesson1;
+
+// Код для всех задач в ДЗ писать внутри соответствующих классов
+// То есть в этом файле надо писать код внутри psvm
+// Из-за большого количества точек входа psvm
+// лучше всего запускать программы с помощью зеленых стрелок около строк кода
+/*
+Создать три переменные с любыми значениями:
+    x целого типа short
+    y целого типа int
+    z целого типа long
+Вывести в консоль результат их сложения и произведения в двух строках
+Вывести в консоль результат сравнения на равенство произведения x и y с числом z
+Пример: для чисел 2, 3 и 6 вывод будет
+11 (потому что 2 + 3 + 6 = 11)
+36 (потому что 2 * 3 * 6 = 36)
+true (потому что 2 * 3 равно 6)
+ */
+public class HW1 {
+    public static void main(String[] args) {
+        short x = 2;
+        int y = 3;
+        long z = 6;
+
+        System.out.println(x + y + z);
+        System.out.println(x * y * z);
+        System.out.println(x * y == z);
+    }
+}
+//РЕШЕНИЕ----------------------
+public class HW1 {
+    public static void main(String[] args) {
+        short x = 2;
+        int y = 7;
+        long z = 8;
+        System.out.println(x + y + z);
+        System.out.println(x * y * z);
+        System.out.println(x + y == z);
+    }
+}
+//Task 02
+package lesson1;
+
+import java.util.Scanner;
+
+/*
+Спросить у пользователя целое число с помощью Scanner
+В случае, если пользователь ввел число больше 1000000, вывести "Большое число"
+В обратном случае, вывести "Небольшое число"
+ */
+public class HW2 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int input = scanner.nextInt();
+        if (input > 1000000) {
+            System.out.println("Большое число");
+        } else {
+            System.out.println("Небольшое число");
+        }
+    }
+}
+//РЕШЕНИЕ----------------------
+import java.util.Scanner;
+
+public class HW2 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите целое число");
+        int in = scanner.nextInt();
+        if(in > 1000000){
+            System.out.println("Большое число");
+        }else{
+            System.out.println("Небольшое число");
+        }
+    }
+}
+//Task 03 ***
+package lesson1;
+
+import java.util.Scanner;
+
+/*
+Спросить у пользователя число
+Если оно попадает в диапазон от 1 до 100 или в диапазон от -1000 до -100, вывести в консоль "+"
+Если оно не попадает ни в один из этих диапазонов, вывести "-"
+ */
+public class HW3 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int input = scanner.nextInt();
+
+        if ((input >= 1 && input <= 100)
+                || (input >= -1000 && input <= -100)) {
+            System.out.println("+");
+        } else {
+            System.out.println("-");
+        }
+
+        if (input >= 1 && input <= 100) {
+            System.out.println("+");
+        } else if (input >= -1000 && input <= -100) {
+            System.out.println("+");
+        } else {
+            System.out.println("-");
+        }
+    }
+}
+// РЕШЕНИЕ----------------------
+import java.util.Scanner;
+
+public class HW3 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите целое число");
+        int in = scanner.nextInt();
+        if((in >= 1 && in <= 100) | (in > -1000 && in < -100)){
+            System.out.println("+");
+        }else{
+            System.out.println("-");
+        }
+    }
+}
